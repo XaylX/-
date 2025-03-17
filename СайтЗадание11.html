@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Форма ввода с проверкой</title>
+<title>Проверка ввода</title>
 </head>
 <body>
 
-<h1>Введите значение:</h1>
-
-<form id="myForm">
-  <label for="inputValue">Значение:</label><br>
-  <input type="text" id="inputValue" name="inputValue"><br><br>
-  <input type="button" value="Отправить" onclick="processInput()">
-</form>
-
-<p id="output"></p>
+<input type="text" id="myInput" placeholder="Введите значение">
+<button id="myButton">Проверить</button>
+<p id="output"></p> 
 
 <script>
-function processInput() {
-  var inputValue = document.getElementById("inputValue").value;
-  if (inputValue.trim() === "") { // Проверяем на пустую строку после обрезки пробелов
-    document.getElementById("output").innerHTML = "Введите значение";
+  function checkInput() {
+  let inputValue = document.getElementById("myInput").value.trim();
+  if (inputValue === "") {
+    
+  document.getElementById("output").innerHTML = "Пожалуйста, введите значение!";
   } else {
-    document.getElementById("output").innerHTML = "Вы ввели: " + inputValue;
+     document.getElementById("output").innerHTML = "Вы ввели: " + inputValue;
   }
 }
+
+document.getElementById("myButton").addEventListener("click", checkInput);
+
 </script>
 
 </body>
