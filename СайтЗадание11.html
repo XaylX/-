@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Форма ввода с проверкой</title>
+</head>
+<body>
+
+<h1>Введите значение:</h1>
+
+<form id="myForm">
+  <label for="inputValue">Значение:</label><br>
+  <input type="text" id="inputValue" name="inputValue"><br><br>
+  <input type="button" value="Отправить" onclick="processInput()">
+</form>
+
+<p id="output"></p>
+
+<script>
+function processInput() {
+  var inputValue = document.getElementById("inputValue").value;
+  if (inputValue.trim() === "") { // Проверяем на пустую строку после обрезки пробелов
+    document.getElementById("output").innerHTML = "Введите значение";
+  } else {
+    document.getElementById("output").innerHTML = "Вы ввели: " + inputValue;
+  }
+}
+</script>
+
+</body>
+</html>
